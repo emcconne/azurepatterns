@@ -36,6 +36,11 @@
   letter-spacing:-1px;
 }
 
+.subtitle a {
+    color: $blue;
+    font-size: 1.18rem !important;
+}
+
 .site-nav {
   padding-top: $nav-padding;
 }
