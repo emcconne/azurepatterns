@@ -16,9 +16,10 @@ container:
   image: jekyll/builder:3.8
 
 steps:
-- checkout: self
-
 # Build Jekyll Website
+#
+- script: echo hello
+
 - script: |
     mkdir _site
     touch Gemfile.lock
