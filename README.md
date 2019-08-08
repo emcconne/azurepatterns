@@ -9,3 +9,5 @@ It's pretty minimal, but leverages large type and drastic contrast to make a sta
 This Pixyl Jekyll theme was crafted with <3 by [John Otander](http://johnotander.com)
 ([@4lpine](https://twitter.com/4lpine)).
 
+The customizations to the theme were done by me :) ([@emcconne](https://twitter.com/emcconne))
+
