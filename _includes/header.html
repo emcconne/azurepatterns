@@ -3,10 +3,14 @@
     <div class="measure">
       <div class="title">
           <a href="{{ "/" | relative_url }}" class="site-title">{{ site.title }}</a>
-          {% if site.subtitle %}
-          {% endif %}
       </div>
-      <div class="subtitle">{{ site.subtitle }}</div>
+      {% if site.subtitle %}
+      <div class="subtitle">
+          <a href="{{ "/" | relative_url }}">
+              {{ site.subtitle }}
+          </a>
+      </div>
+      {% endif %}
       <figure class="looking-image">
         <div class="img" href="{{ site.baseurl }}" style="background-image: url(/images/site/looking11.svg)"/>
       </figure>
