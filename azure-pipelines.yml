@@ -14,7 +14,6 @@ pool:
 
 container: 
   image: jekyll/builder:3.8
-  options: --volume="$PWD:/srv/jekyll" --volume="$PWD/vendor/bundle:/usr/local/bundle" 
 
 steps:
 - checkout: self
