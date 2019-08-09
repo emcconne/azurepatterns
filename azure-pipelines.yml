@@ -12,8 +12,12 @@ pr:
 pool:
   vmImage: 'ubuntu-16.04'
 
-container:
-  image: ubuntu:16.04
+resources:
+  containers:
+  - image: jekyll/builder:3.8
+    name: jekyll
+
+container: jekyll
 
 steps:
 # Build Jekyll Website
