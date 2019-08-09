@@ -10,23 +10,65 @@ pr:
 - master
 
 pool:
-  vmImage: 'ubuntu-16.04'
+  vmImage: 'ubuntu-latest'
 
-resources:
-  containers:
-    - container: jekyll 
-      image: jekyll/builder:3.8
+  variables:
+  - name: imageName
+    value: jekyll/builder
+  - name: jekyllVersion
+    value: 3.8
 
 steps:
-# Build Jekyll Website
-#
-- script: echo hello
+# Checkout is done automatically but here for readability
+- checkout: self
 
+# Why was this build executed
+#- bash: |
+#    case $BUILD_REASON in
+#            "Manual") echo "$BUILD_REQUESTEDFOR manually queued the build." ;;
+#            "IndividualCI") echo "This is a CI build for $BUILD_REQUESTEDFOR." ;;
+#            "BatchedCI") echo "This is a batched CI build for $BUILD_REQUESTEDFOR." ;;
+#        *) $BUILD_REASON ;;
+#    esac
+#  condition: eq( variables['Agent.OS'], 'Linux' )
+#  displayName: Get Build Reason
+
+- script: |
+    GIT_COMMIT=$( git rev-parse --short HEAD )
+    VERSION=$( cat VERSION )
+    echo "##vso[task.setvariable variable=commitHash;isOutput=true]$GIT_COMMIT"
+    echo "##vso[task.setvariable variable=version;isOutput=true]$VERSION"
+  name: setVar
+  displayName: Set runtime variables for pipeline
+
+#- script: |
+#    VERSION=$( cat VERSION )
+#    echo "##vso[task.setvariable variable=version;isOutput=true]$VERSION"
+#  name: setVersion
+
+# Build and Push container to DockerHub
+- script: |
+    echo "GIT_COMMIT: $(setVar.commitHash)"
+    echo "VERSION=$(setVar.version)"
+  displayName: Echo pipeline dynamic variables
+
+# Build Jekyll Website
 - script: |
     mkdir _site
     touch Gemfile.lock
     chmod a+w Gemfile.lock
-    jekyll build
+    echo ""
+    ls -la 
+    echo "Docker Run"
+    docker run --rm \
+        --volume="$PWD:/srv/jekyll" \
+        --volume="$PWD/vendor/bundle:/usr/local/bundle" \
+        -i jekyll/builder:3.8 \
+        jekyll build
+    echo ""
+    echo "Output"
+    ls -la _site
+
 
 # Copy Website to Storage Acct# Copy Website to Storage Acct
 # Azure CLI
