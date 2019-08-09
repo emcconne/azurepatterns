@@ -15,7 +15,7 @@ pool:
 resources:
   containers:
   - image: jekyll/builder:3.8
-    name: jekyll
+    container: jekyll
 
 container: jekyll
 
