@@ -12,11 +12,20 @@ pr:
 pool:
   vmImage: 'ubuntu-latest'
 
+<<<<<<< HEAD
   variables:
   - name: imageName
     value: jekyll/builder
   - name: jekyllVersion
     value: 3.8
+=======
+resources:
+  containers:
+  - container: jekyll
+    image: jekyll/builder:3.8
+
+container: jekyll
+>>>>>>> 670c8bedbcf496016f79e901aa184f215e1b2e4c
 
 steps:
 # Checkout is done automatically but here for readability
