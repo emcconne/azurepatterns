@@ -1,6 +1,6 @@
 .pagination {
   font-size: 1rem;
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: $link-font-family; 
   font-weight: 300;
   text-align: center;
 }
@@ -11,9 +11,9 @@
   transition: all 0.2s ease-in-out;
   background: #fafafa;
   border-radius: 0.1875em;
-  border: 1px solid #f3f3f3;
+  border: 1.5px solid #eee;
   color: #333333;
-  padding: 1em 1.5em;
+  padding: .5em 1em;
 }
 
 .pagination .disabled, .pagination .pagination-meta {

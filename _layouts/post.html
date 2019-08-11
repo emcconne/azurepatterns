@@ -6,29 +6,44 @@ layout: default
 {% if minutes == 0 %}
 {% assign minutes = 1 %}
 {% endif %}
-
-<div class="post-header mb2">
-  <h1>{{ page.title }}</h1>
-  <span class="post-meta">{{ page.date | date: site.date_format }}</span><br>
-  {% if page.update_date %}
-    <span class="post-meta">{{ site.text.post.updated | default: "Updated" }}: {{ page.update_date | date: site.date_format }}</span><br>
+{% if site.show_page_navigation %}
+<div class="page-navigation">
+    <a class="home" href="{{ "/" | relative_url }}">
+       &laquo; HOME
+    </a>
+  {% if page.previous.url %}
+  <!--<a class="next" href="{{page.previous.url}}"> NEXT &raquo;</a>-->
+  <a class="next" href="{{page.previous.url}}"> NEXT - {{page.previous.title}} &raquo;</a>
   {% endif %}
-  <span class="post-meta small">
-  {% if page.minutes %}
-    {{ page.minutes }} {{ site.text.post.minute_read | default: "minute read" }}
-  {% else %}
-    {{ minutes }} {{ site.text.post.minute_read | default: "minute read" }}
-  {% endif %}
-  </span>
 </div>
-
+{% endif %}
+<div class="clearfix"></div>
+<div class="post-header mb1">
+  <h1>{{ page.title }}</h1>
+  <div class="post-meta-container">
+    {{ page.date | date: site.date_format }}
+    {% if page.update_date %}
+    <div class="post-meta">{{ site.text.post.updated | default: "Updated" }}: {{ page.update_date | date: site.date_format }}</div>
+    {% endif %}
+    <div class="post-meta small">
+    {% if site.show_page_minutes %}
+        {% if page.minutes %}
+          {{ page.minutes }} {{ site.text.post.minute_read | default: "minute read" }}
+        {% else %}
+          {{ minutes }} {{ site.text.post.minute_read | default: "minute read" }}
+        {% endif %}
+    {% endif %}
+    </div>
+  </div>
+  {% if site.show_sharing_icons %}
+    {% include share_buttons.html %}
+  {% endif %}
+<div class="clearfix"></div>
+</div>
 <article class="post-content">
   {{ content }}
 </article>
 
-{% if site.show_sharing_icons %}
-  {% include share_buttons.html %}
-{% endif %}
 
 {% if site.disqus_shortname %}
   <div id="disqus_thread"></div>
