@@ -88,12 +88,12 @@ pre a:only-of-type::before {
     width: 100%;
 //    height: $terminal-window-height;
     margin: 0;
-    padding: (0.5 * $terminal-window-height) 0;
+    padding: (0.3 * $terminal-window-height) 0 (0.4 * $terminal-window-height) 0;
     background: mix($base-color, #fff, 25%);
     color: mix($base-color, #fff, 50%);
-    font-size: (2 * $terminal-window-height);
+    font-size: (1.5 * $terminal-window-height);
     line-height: 0;
-    text-indent: (0.5 * $terminal-window-height);
+    text-indent: (0.25 * $terminal-window-height);
   }
 
   .highlight {
