@@ -8,12 +8,16 @@ layout: default
 {% endif %}
 {% if site.show_page_navigation %}
 <div class="page-navigation">
-    <a class="home" href="{{ "/" | relative_url }}">
-       &laquo; HOME
+    <!--<a class="home" href="{{ "/" | relative_url }}">-->
+    {% if page.next.url %}
+    <a class="home" href="{{ page.next.url }}">
+        <!--&laquo; HOME-->
+        &laquo;  {{page.next.title}}
     </a>
+    {% endif %}
   {% if page.previous.url %}
   <!--<a class="next" href="{{page.previous.url}}"> NEXT &raquo;</a>-->
-  <a class="next" href="{{page.previous.url}}"> NEXT - {{page.previous.title}} &raquo;</a>
+  <a class="next" href="{{page.previous.url}}"> {{page.previous.title}}  &raquo;</a>
   {% endif %}
 </div>
 {% endif %}

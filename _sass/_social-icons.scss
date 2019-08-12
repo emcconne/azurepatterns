@@ -8,7 +8,7 @@
 }
 
 .social-icons {
-  font-size: 1.25rem;
+  font-size: 1rem;
   padding: 0.5em 0 0 0;
   width: 100%;
   margin-bottom:10px;
@@ -27,4 +27,8 @@
 .social-icons iframe[title=Flattr] {
   position: relative;
   top: 0.1em;
+}
+
+.fa {
+    margin-right: 0.4rem;
 }
