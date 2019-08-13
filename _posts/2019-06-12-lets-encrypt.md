@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How To Generate a Let's Encrypt Certificate
+title: Generating a Let's Encrypt Certificate
 date: 2019-06-12
 summary: |
  Let's Encrypt a certificate for our website using the command line
