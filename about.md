@@ -18,10 +18,10 @@ at ...
 * CollabNet in Professional Services where I worked with customers to setup
   Subversion SCM.
 * Novell as a Marketing Manager working on the open source projects Kablink and
-  iFolder, both of which I don't think are around anymore.  BTW, this is my only
-  forray into the dark worlds outside typical engineering roles.
-* Hewlett Packard as a Partner Engineer helping partners utilize HP solutions
-  to their fullest potenial in their product offerings
+  iFolder, both of which I don't think are around anymore.  BTW, this was my only
+  foray into the dark worlds outside typical engineering roles.
+* Hewlett Packard as a partner engineer helping partners utilize HP solutions
+  on Linux to their fullest potential.
 * Alcoa as a programmer analyst where I started this never ending adventure in
   technology.
 
