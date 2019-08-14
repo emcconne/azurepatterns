@@ -23,6 +23,10 @@
     opacity: .8;
 }
 
+.bottom-border {
+    border-bottom: 2px solid #eee;
+}
+
 .share-page 
 a:hover,
 a:focus,
@@ -52,7 +56,7 @@ a:active {
 }
 
 .post-header {
-    border-top: 2px solid #eee;
+    //border-top: 2px solid #eee;
     margin-top: 5px;
 }
 
